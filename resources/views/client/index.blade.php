@@ -7,7 +7,9 @@
     <div class="row">
         <div class="d-flex justify-content-between">
             <div class="p-2">
-                <a href="{{ route('client.tambahdata') }}" class="btn btn-primary"><b>+</b>Tambah Klien</a>
+                @if (Auth::user()->id_role == 1 || Auth::user()->id_role == 2)
+                    <a href="{{ route('client.tambahdata') }}" class="btn btn-primary"><b>+</b>Tambah Klien</a>
+                @endif
             </div>
             {{-- <div class="p-2">
                 <a href="#" class="btn btn-danger btn-sm">
@@ -43,7 +45,9 @@
                 <th>Alamat Klien</th>
                 <th>Tanggal Mulai Kontrak</th>
                 <th>Tanggal Berakhir Kontrak</th>
-                <th>Aksi</th>
+                @if (Auth::user()->id_role == 1 || Auth::user()->id_role == 2)
+                    <th>Aksi</th>
+                @endif
             </tr>
         </thead>
     </table>
